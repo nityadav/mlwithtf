@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-# The variables which we want to find out. For this demo, we want to find out the equation of the line in form of y = wx + b
+# The variables which we want to find out. For this demo, we want to find out the equation of the line in form of y = mx + b
 W = tf.Variable(tf.zeros([1]))
 b = tf.Variable(tf.zeros([1]))
 
@@ -21,4 +21,5 @@ init = tf.initialize_all_variables()
 with tf.Session() as sess:
 	sess.run(init)
 	for _ in xrange(100):
-		print(sess.run(train_step))
+		_,w,_ = sess.run([train_step,W,b])
+		print w
